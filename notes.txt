@@ -1,0 +1,2 @@
+AI is the simulation of human intelligence.
+Agents can use tools to solve problems.
