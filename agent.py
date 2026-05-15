@@ -3,7 +3,7 @@ from tools.file_reader import read_file
 
 class Agent:
     def process(self, user_input):
-        
+
         if "calculate" in user_input:
             expression = user_input.replace("calculate", "").strip()
             return calculate(expression)
