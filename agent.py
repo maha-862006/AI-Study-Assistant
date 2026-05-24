@@ -2,15 +2,23 @@ from tools.calculator import calculate
 from tools.file_reader import read_file
 
 class Agent:
+
     def process(self, user_input):
 
-        if "calculate" in user_input:
-            expression = user_input.replace("calculate", "").strip()
+        command = user_input.lower().strip()
+
+        if command.startswith("calculate"):
+            expression = user_input[len("calculate"):].strip()
             return calculate(expression)
 
-        elif "read file" in user_input:
-            file_path = user_input.replace("read file", "").strip()
+        elif command.startswith("read file"):
+            file_path = user_input[len("read file"):].strip()
             return read_file(file_path)
 
         else:
-            return "Try: 'calculate 2+3' or 'read file notes.txt'"
+            return (
+                "Unsupported command.\n"
+                "Try:\n"
+                "- calculate 2+3\n"
+                "- read file notes.txt"
+            )
